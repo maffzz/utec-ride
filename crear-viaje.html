@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear viaje - UtecRide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="crear-page">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">UR</div>
+      <div class="brand-text">
+        <h1>UtecRide</h1>
+        <p>Carpooling entre estudiantes UTEC</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="index.html" class="btn btn-ghost">Buscar rides</a>
+      <a href="mis-reservas.html" class="btn btn-secondary">Mis reservas</a>
+    </div>
+  </header>
+
+  <main class="page-main crear-main">
+    <section class="layout layout-crear">
+      <section class="search-panel">
+        <h2>Publicar un nuevo viaje</h2>
+        <p class="subtitle">Comparte tu ruta con otros estudiantes y dividan el costo.</p>
+
+        <form class="search-form">
+          <div class="field-group">
+            <label for="from">Origen</label>
+            <input type="text" id="from" placeholder="Ej. Miraflores" required />
+          </div>
+          <div class="field-group">
+            <label for="to">Destino</label>
+            <input type="text" id="to" placeholder="UTEC o tu barrio" required />
+          </div>
+          <div class="field-group">
+            <label for="date">Fecha</label>
+            <input type="date" id="date" required />
+          </div>
+          <div class="field-group">
+            <label for="time">Hora de salida</label>
+            <input type="time" id="time" required />
+          </div>
+          <div class="field-group">
+            <label for="seats">Asientos disponibles</label>
+            <select id="seats" required>
+              <option value="">Selecciona</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="price">Aporte sugerido (S/)</label>
+            <input type="number" id="price" min="0" step="0.5" />
+          </div>
+          <div class="field-group full">
+            <label for="notes">Notas para los pasajeros</label>
+            <input type="text" id="notes" placeholder="Punto de encuentro, reglas del viaje, etc." />
+          </div>
+          <div class="field-group full">
+            <button class="btn btn-primary w-full" type="submit" id="btn-publicar">Publicar viaje</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-panel">
+        <header class="results-header">
+          <div>
+            <h2>Consejos de seguridad</h2>
+            <p class="subtitle">Recuerda verificar identidad, placa y ubicación antes de subir.</p>
+          </div>
+        </header>
+        <ul class="helper-list">
+          <li>Usa siempre tu correo UTEC para coordinar.</li>
+          <li>Comparte tu ubicación en tiempo real con alguien de confianza.</li>
+          <li>Acordar el aporte y ruta antes de subir al auto.</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const form = document.querySelector('.crear-page .search-form');
+      const btn = document.getElementById('btn-publicar');
+
+      if (!form || !btn) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert(
+          'Debes iniciar sesión para publicar un viaje, pero esta función aún no está habilitada.\n\nEspera el lanzamiento oficial de UtecRide. 🚗💨'
+        );
+      });
+    })();
+  </script>
+</body>
+</html>

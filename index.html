@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UtecRide - Carpooling UTEC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">UR</div>
+      <div class="brand-text">
+        <h1>UtecRide</h1>
+        <p>Carpooling entre estudiantes UTEC</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn btn-ghost" id="btn-login">Iniciar sesión</button>
+      <a href="crear-viaje.html" class="btn btn-primary" id="btn-create-header">Crear viaje</a>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header">
+      <nav class="breadcrumb">
+        <span>UTEC</span>
+        <span>/</span>
+        <span>Transporte</span>
+        <span>/</span>
+        <span class="breadcrumb-current">UtecRide</span>
+      </nav>
+      <div class="page-title-block">
+        <div>
+          <h2 class="page-title">UtecRide</h2>
+          <p class="page-subtitle">Comparte auto hacia UTEC o de regreso a casa.</p>
+        </div>
+        <div class="page-actions">
+          <a href="mis-reservas.html" class="link-button">Ver mis reservas</a>
+          <a href="crear-viaje.html" class="link-button" id="link-mis-conductor">Mis viajes como conductor</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="filters-bar">
+      <form class="filters-form" id="search-form">
+        <div class="filter-item">
+          <label for="date">¿Qué día?</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="filter-item">
+          <label for="time">¿A partir de qué hora?</label>
+          <input type="time" id="time" />
+        </div>
+        <div class="filter-item">
+          <label for="from">Origen</label>
+          <input type="text" id="from" placeholder="Ej. Miraflores" />
+        </div>
+        <div class="filter-item">
+          <label for="to">Destino</label>
+          <input type="text" id="to" placeholder="UTEC o tu barrio" />
+        </div>
+        <div class="filter-item">
+          <label for="seats">¿Cuántas personas?</label>
+          <select id="seats">
+            <option value="">Cualquiera</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="filter-item filter-submit">
+          <button class="btn btn-primary w-full" type="submit">Buscar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="layout layout-main">
+      <section class="results-panel">
+      <header class="results-header">
+        <div>
+          <h2>Rides disponibles</h2>
+          <p id="results-count">0 resultados</p>
+        </div>
+        <select id="sort" class="sort-select">
+          <option value="time">Ordenar por hora</option>
+          <option value="price">Ordenar por aporte</option>
+        </select>
+      </header>
+
+      <div id="rides-list" class="rides-list">
+        <!-- Tarjetas generadas por JS -->
+      </div>
+    </section>
+
+      <aside class="side-panel">
+        <div class="side-card">
+          <div class="side-card-header">
+            <p class="side-status side-status-open">Servicio activo • Hoy</p>
+            <p class="side-sub">Viajes hacia UTEC y de regreso</p>
+          </div>
+          <div class="side-metric">
+            <span class="side-metric-value" id="side-metric-value">3</span>
+            <span class="side-metric-label">rides disponibles ahora</span>
+          </div>
+          <a href="crear-viaje.html" class="btn btn-primary w-full" id="btn-create-side">Crear un nuevo viaje</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <template id="ride-card-template">
+    <article class="ride-card">
+      <div class="ride-main">
+        <div class="ride-line">
+          <span class="ride-time">08:15</span>
+          <span class="ride-route">Miraflores → UTEC</span>
+        </div>
+        <p class="ride-driver">Conductor: <strong>Nombre</strong></p>
+        <p class="ride-meta">3 asientos libres · Aporte S/ 5</p>
+      </div>
+      <div class="ride-side">
+        <span class="ride-status-pill ride-status-open">Disponible</span>
+        <button class="btn btn-secondary">Unirme</button>
+      </div>
+    </article>
+  </template>
+
+  <div class="modal-backdrop" id="confirm-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <h3 class="modal-title">Confirmar aporte</h3>
+      <p class="modal-text" id="modal-text">Vas a unirte a este ride.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="modal-cancel">Cancelar</button>
+        <button class="btn btn-primary" id="modal-confirm">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
