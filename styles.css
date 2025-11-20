@@ -273,6 +273,20 @@ select {
   color: var(--muted);
 }
 
+.side-image-wrapper {
+  margin-top: 10px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.side-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
 .side-metric {
   display: flex;
   align-items: baseline;
