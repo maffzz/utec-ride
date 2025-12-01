@@ -1,7 +1,7 @@
 const mockRides = [
   {
     id: 1,
-    date: "2025-11-20",
+    date: "2025-12-04",
     time: "08:15",
     from: "Miraflores",
     to: "UTEC",
@@ -11,7 +11,7 @@ const mockRides = [
   },
   {
     id: 2,
-    date: "2025-11-20",
+    date: "2025-12-04",
     time: "08:40",
     from: "Barranco",
     to: "UTEC",
@@ -21,7 +21,7 @@ const mockRides = [
   },
   {
     id: 3,
-    date: "2025-11-20",
+    date: "2025-12-04",
     time: "21:15",
     from: "UTEC",
     to: "Surco",
@@ -130,7 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("btn-login");
   const conductorLink = document.getElementById("link-mis-conductor");
 
-  if (loginBtn) loginBtn.addEventListener("click", showComingSoon);
+  if (loginBtn) loginBtn.addEventListener("click", () => {
+    window.location.href = 'login.html';
+  });
   if (conductorLink)
     conductorLink.addEventListener("click", (e) => {
       e.preventDefault();

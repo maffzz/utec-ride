@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión - UtecRide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: var(--bg);
+    }
+
+    .login-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f5f2e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .login-title {
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+    }
+
+    .login-subtitle {
+      color: var(--muted);
+      margin: 0 0 2rem 0;
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-soft);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 0.875rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-login:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .error-message {
+      color: #e53e3e;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-circle">
+          <img src="logo.png" alt="UtecRide Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+        </div>
+        <div class="brand-text">
+          <h1>UtecRide</h1>
+        </div>
+      </div>
+      <h2 class="login-title">Iniciar sesión</h2>
+      <p class="login-subtitle">Ingresa con tu correo institucional UTEC</p>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            placeholder="tu.codigo@utec.edu.pe" 
+            required
+          />
+          <div id="emailError" class="error-message">
+            Por favor ingresa un correo @utec.edu.pe válido
+          </div>
+        </div>
+        <button type="submit" class="btn-login">Continuar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const errorElement = document.getElementById('emailError');
+      
+      // Validar que el correo sea de UTEC
+      if (email.endsWith('@utec.edu.pe')) {
+        // Redirigir al index.html después de una validación exitosa
+        window.location.href = 'index.html';
+      } else {
+        // Mostrar mensaje de error
+        errorElement.style.display = 'block';
+      }
+    });
+
+    // Ocultar mensaje de error cuando el usuario empiece a escribir
+    document.getElementById('email').addEventListener('input', function() {
+      document.getElementById('emailError').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
