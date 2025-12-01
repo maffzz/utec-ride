@@ -26,18 +26,6 @@
 3. publica un viaje o únete a uno existente
 4. ¡disfruta del viaje compartido!
 
-## 📱 capturas de pantalla
-
-próximamente...
-
 ## 📝 licencia
 
 este proyecto está bajo la licencia mit. consulta el archivo `license` para más información.
-
-## 🤝 contribuir
-
-las contribuciones son bienvenidas. por favor, lee nuestras pautas de contribución antes de enviar un pull request.
-
-## 📧 contacto
-
-¿preguntas o sugerencias? ¡nos encantaría escucharte!
